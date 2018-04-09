@@ -4,7 +4,7 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 from http_handler import HTTPHandler
 
 HOST_NAME = 'localhost'
-PORT_NUMBER = 9000
+PORT_NUMBER = 7172
 
 if __name__ == '__main__':
     server_class = HTTPServer
