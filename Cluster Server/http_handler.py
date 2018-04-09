@@ -10,7 +10,7 @@ class HTTPHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         paths={
             '/' : {'status':200},
-            '/status' : {'status':200}
+            '/index.html' : {'status':200}
         }
 
         if self.path in paths:
@@ -19,33 +19,22 @@ class HTTPHandler(BaseHTTPRequestHandler):
             self.respond({'status':404})
 
     def handle_http(self, status_code, path):
-        self.send_response(200)
+        self.send_response(status_code)
         self.send_header('Content-type', 'text/html')
         self.end_headers()
 
-        content = '''
-            <!DOCTYPE html>
-            <html>
-            <body>
-
-            <h1>Getting server updates</h1>
-            <p></p>
-            <div id="result"></div>
-
-            <script>
-            if(typeof(EventSource) !== "undefined") {
-                var source = new EventSource("demo_sse.php");
-                source.onmessage = function(event) {
-                    document.getElementById("result").innerHTML = event.data + "<br>";
-                };
-            } else {
-                document.getElementById("result").innerHTML = "Sorry, your browser does not support server-sent events...";
-            }
-            </script>
-
-            </body>
-            </html>
-        '''
+        if '.html' in path and status_code == 200:
+            with open('html' + path) as file:
+                content = file.read()
+                file.close()
+        elif '.html' not in path and status_code == 200:
+            with open('html' + path + '/index.html') as file:
+                content = file.read()
+                file.close()
+        else:
+            with open('html/' + str(status_code) + '.html') as file:
+                content = file.read()
+                file.close()
 
         return bytes(content, 'UTF-8')
 
