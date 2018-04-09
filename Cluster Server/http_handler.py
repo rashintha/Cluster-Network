@@ -26,7 +26,7 @@ class HTTPHandler(BaseHTTPRequestHandler):
             self.send_header('Cache-Control', 'no-cache')
             self.end_headers()
 
-            content = time.asctime()
+            content = str(time.asctime()) + ' Time'
         else:
             self.send_response(status_code)
             self.send_header('Content-type', 'text/html')
