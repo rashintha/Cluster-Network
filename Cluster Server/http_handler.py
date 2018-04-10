@@ -27,6 +27,7 @@ class HTTPHandler(BaseHTTPRequestHandler):
             self.end_headers()
 
             content = 'data: ' +  str(time.asctime()) + ' Time'
+            print(content)
         else:
             self.send_response(status_code)
             self.send_header('Content-type', 'text/html')
