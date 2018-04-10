@@ -11,13 +11,22 @@ class HTTPHandler(BaseHTTPRequestHandler):
         paths={
             '/' : {'status':200},
             '/index.html' : {'status':200},
-            '/status' : {'status':200}
+            '/status' : {'status':200},
+            '/jquery.min.js' : {'status':200}
         }
 
         if self.path in paths:
             self.respond(paths[self.path])
         else:
             self.respond({'status':404})
+
+    def resolveMimeType(self, path):
+        if path.lower().endswith('.html', '.htm', '.php'):
+            return 'text/html'
+        elif path.lower().endswith('.js'):
+            return 'application/javascript'
+        else:
+            return 'text/html'
 
     def handle_http(self, status_code, path):
         if '/status' in path and status_code == 200:
@@ -28,8 +37,9 @@ class HTTPHandler(BaseHTTPRequestHandler):
             content = 'data: ' +  str(time.asctime()) + ' Time'
             print(content)
         else:
+
             self.send_response(status_code)
-            self.send_header('Content-type', 'text/html')
+            self.send_header('Content-type', resolveMimeType(path))
             self.end_headers()
 
             if '.html' in path and status_code == 200:
