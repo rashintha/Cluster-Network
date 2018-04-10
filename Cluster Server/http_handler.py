@@ -23,7 +23,6 @@ class HTTPHandler(BaseHTTPRequestHandler):
         if '/status' in path and status_code == 200:
             self.send_response(status_code)
             self.send_header('Content-type', 'text/event-stream')
-            self.send_header('Cache-Control', 'no-cache')
             self.end_headers()
 
             content = 'data: ' +  str(time.asctime()) + ' Time'
