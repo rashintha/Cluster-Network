@@ -39,7 +39,7 @@ class HTTPHandler(BaseHTTPRequestHandler):
         else:
 
             self.send_response(status_code)
-            self.send_header('Content-type', resolveMimeType(path))
+            self.send_header('Content-type', self.resolveMimeType(path))
             self.end_headers()
 
             if '.html' in path and status_code == 200:
