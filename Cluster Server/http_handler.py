@@ -21,7 +21,7 @@ class HTTPHandler(BaseHTTPRequestHandler):
             self.respond({'status':404})
 
     def resolveMimeType(self, path):
-        if path.lower().endswith('.html', '.htm', '.php'):
+        if path.lower().endswith('.html'):
             return 'text/html'
         elif path.lower().endswith('.js'):
             return 'application/javascript'
@@ -34,15 +34,15 @@ class HTTPHandler(BaseHTTPRequestHandler):
             self.send_header('Content-type', 'text/event-stream')
             self.end_headers()
 
-            content = 'data: ' +  str(time.asctime()) + ' Time'
-            print(content)
+            content = str(time.asctime()) + ' Time'
         else:
 
             self.send_response(status_code)
+            print(path)
             self.send_header('Content-type', self.resolveMimeType(path))
             self.end_headers()
 
-            if '.html' in path and status_code == 200:
+            if '.html' in path or '.js' in path and status_code == 200:
                 with open('html' + path) as file:
                     content = file.read()
                     file.close()

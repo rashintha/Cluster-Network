@@ -11,14 +11,15 @@
             <div id="result"></div>
 
             <script>
-            if(typeof(EventSource) !== "undefined") {
-                var source = new EventSource("status");
-                source.onmessage = function(event) {
-                    document.getElementById("result").innerHTML = event.data + "<br>";
-                };
-            } else {
-                document.getElementById("result").innerHTML = "Please use another browser.";
-            }
+                $(document).ready(function(){
+                    function loadData(){
+                        $.get('/status', function(data, status){
+                            $('#result').html(data);
+                        });
+                    }
+
+                    setInterval(loadData, 1000);
+                });
             </script>
 
             </body>
