@@ -12,7 +12,8 @@ class HTTPHandler(BaseHTTPRequestHandler):
             '/' : {'status':200},
             '/index.html' : {'status':200},
             '/status' : {'status':200},
-            '/jquery.min.js' : {'status':200}
+            '/jquery.min.js' : {'status':200},
+            '/style.css' : {'status':200}
         }
 
         if self.path in paths:
@@ -36,9 +37,7 @@ class HTTPHandler(BaseHTTPRequestHandler):
 
             content = str(time.asctime()) + ' Time'
         else:
-
             self.send_response(status_code)
-            print(path)
             self.send_header('Content-type', self.resolveMimeType(path))
             self.end_headers()
 

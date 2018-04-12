@@ -1,26 +1,27 @@
-            <!DOCTYPE html>
-            <html>
-            <head>
-                <title>Cluster Network</title>
-                <script src="/jquery.min.js"></script>
-            </head>
-            <body>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cluster Network</title>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <script src="/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container header">
+        <h2>Cluster Network</h2>
+    </div>
+    <div id="result"></div>
 
-            <h1>Getting server updates</h1>
-            <p></p>
-            <div id="result"></div>
-
-            <script>
-                $(document).ready(function(){
-                    function loadData(){
-                        $.get('/status', function(data, status){
-                            $('#result').html(data);
-                        });
-                    }
-
-                    setInterval(loadData, 1000);
+    <script>
+        $(document).ready(function(){
+            function loadData(){
+                $.get('/status', function(data, status){
+                    $('#result').html(data);
                 });
-            </script>
+            }
 
-            </body>
-            </html>
+            setInterval(loadData, 1000);
+        });
+    </script>
+
+</body>
+</html>
