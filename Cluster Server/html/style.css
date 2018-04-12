@@ -19,3 +19,7 @@ body{
 	z-index: 100;
 	position: 0 0;
 }
+
+.header h2{
+	padding-left: 10px;
+}
