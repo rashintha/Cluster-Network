@@ -23,3 +23,57 @@ body{
 .header h2{
 	padding-left: 10px;
 }
+
+/*
+ * Extra Small Devices
+ */
+@media only screen and (max-width: 600px){
+	.top-contain{
+		margin-top: 100px;
+	}
+}
+
+/*
+ * Small Devices
+ */
+@media only screen and (min-width: 600px){
+	.top-contain{
+		margin-top: 100px;
+	}
+}
+
+/*
+ * Medium Devices
+ */
+@media only screen and (min-width: 768px){
+	.top-contain{
+		margin-top: 100px;
+	}
+}
+
+/*
+ * Large Devices
+ */
+@media only screen and (min-width: 992px){
+	.top-contain{
+		margin-top: 100px;
+	}
+}
+
+/*
+ * Extra Large Devices
+ */
+@media only screen and (min-width: 1200px){
+	.top-contain{
+		margin-top: 100px;
+	}
+}
+
+/*
+ * XX-Large Devices
+ */
+@media only screen and (min-width: 1500px){
+	.top-contain{
+		margin-top: 100px;
+	}
+}
