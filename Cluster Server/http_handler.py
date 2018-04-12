@@ -26,6 +26,8 @@ class HTTPHandler(BaseHTTPRequestHandler):
             return 'text/html'
         elif path.lower().endswith('.js'):
             return 'application/javascript'
+        elif path.lower().endswith('.css'):
+            return 'text/css'
         else:
             return 'text/html'
 
@@ -41,7 +43,7 @@ class HTTPHandler(BaseHTTPRequestHandler):
             self.send_header('Content-type', self.resolveMimeType(path))
             self.end_headers()
 
-            if '.html' in path or '.js' in path and status_code == 200:
+            if '.html' in path or '.js' in path or '.css' in path and status_code == 200:
                 with open('html' + path) as file:
                     content = file.read()
                     file.close()
