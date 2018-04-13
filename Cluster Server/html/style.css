@@ -90,10 +90,15 @@ body{
 		margin-top: 10px;
 	}
 
-	.progress{
+	.progress_ram{
 		height: 20px;
 		background-color: #502785;
 	}
+
+	.progress_cpu{
+		height: 20px;
+		background-color: #D69935;
+	}	
 
 	.progress_text{
 		color: #fff;
@@ -130,10 +135,15 @@ body{
 		margin-top: 10px;
 	}
 
-	.progress{
+	.progress_ram{
 		height: 20px;
 		background-color: #502785;
 	}
+
+	.progress_cpu{
+		height: 20px;
+		background-color: #D69935;
+	}	
 
 	.progress_text{
 		color: #fff;
