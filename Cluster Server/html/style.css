@@ -24,6 +24,10 @@ body{
 	padding-left: 10px;
 }
 
+.top-contain div{
+	float: left;
+}
+
 /*
  * Extra Small Devices
  */
@@ -67,6 +71,11 @@ body{
 	.top-contain{
 		padding-top: 100px;
 	}
+
+	.top-data{
+		width: 25%;
+		height: auto;
+	}
 }
 
 /*
@@ -75,5 +84,10 @@ body{
 @media only screen and (min-width: 1500px){
 	.top-contain{
 		padding-top: 100px;
+	}
+
+	.top-data{
+		width: 25%;
+		height: auto;
 	}
 }
