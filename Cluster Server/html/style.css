@@ -121,5 +121,6 @@ body{
 		font-size: 11px;
 		width: 100%;
 		margin-top: 2px;
+		z-index: 10;
 	}
 }
