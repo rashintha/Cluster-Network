@@ -12,13 +12,24 @@
     </div>
 
     <div class="container top-contain">
-        <h3>Cluster Server</h3>
+        <h3 style="padding-left: 10px;">Cluster Server</h3>
         <br />
+        <!-- CPU -->
+        <div class="top-data">
+            <span id="cpu"></span>
+            <div class="progress_back">
+                <div id="cpu_progress" class="progress">
+                    <div id="cpu_progress_text" class="progress_text"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RAM -->
         <div class="top-data">
             <span id="ram"></span>
             <div class="progress_back">
-                <div id="progress" class="progress">
-                    <div id="progress_text" class="progress_text"></div>
+                <div id="ram_progress" class="progress">
+                    <div id="ram_progress_text" class="progress_text"></div>
                 </div>
             </div>
         </div>
@@ -31,9 +42,14 @@
             function loadData(){
                 $.get('/status', function(data, status){
                     var data_jsn = JSON.parse(data);
+
+                    $('#cpu').html("CPU " + data_jsn.CPU_CURRENT + " /" + data_jsn.CPU_MAX + " GHz");
+                    $('#cpu_progress').css("width", data_jsn.CPU_PERCENT + "%");
+                    $('#cpu_progress_text').html(data_jsn.CPU_PERCENT + "%");
+
                     $('#ram').html("RAM " + data_jsn.RAM_USED + " /" + data_jsn.RAM_TOTAL + " GB");
-                    $('#progress').css("width", data_jsn.RAM_PERCENT + "%");
-                    $('#progress_text').html(data_jsn.RAM_PERCENT + "%");
+                    $('#ram_progress').css("width", data_jsn.RAM_PERCENT + "%");
+                    $('#ram_progress_text').html(data_jsn.RAM_PERCENT + "%");
                 });
             }
 
