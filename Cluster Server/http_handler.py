@@ -1,5 +1,6 @@
 import time
 from http.server import BaseHTTPRequestHandler, HTTPServer
+from data import get_data
 
 class HTTPHandler(BaseHTTPRequestHandler):
     def do_HEAD(self):
@@ -37,7 +38,7 @@ class HTTPHandler(BaseHTTPRequestHandler):
             self.send_header('Content-type', 'text/event-stream')
             self.end_headers()
 
-            content = str(time.asctime()) + ' Time'
+            content = get_data() + str(time.asctime()) + ' Time'
         else:
             self.send_response(status_code)
             self.send_header('Content-type', self.resolveMimeType(path))
