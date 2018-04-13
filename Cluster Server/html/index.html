@@ -28,7 +28,7 @@
                 $.get('/status', function(data, status){
                     var data_jsn = JSON.parse(data);
                     $('#ram').html("RAM " + data_jsn.RAM_USED + " /" + data_jsn.RAM_TOTAL + " GB");
-                    $('#progress').css("width", data_jsn.RAM_PERCENTAGE + "%");
+                    $('#progress').css("width", data_jsn.RAM_PERCENT + "%");
                 });
             }
 
