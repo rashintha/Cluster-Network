@@ -113,8 +113,13 @@ body{
 	.progress{
 		height: 20px;
 		background-color: #502785;
+	}
+
+	.progress_text{
 		color: #fff;
 		text-align: center;
 		font-size: 11px;
+		width: 100%;
+		margin-top: 2px;
 	}
 }

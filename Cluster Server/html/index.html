@@ -15,7 +15,9 @@
         <div class="top-data">
             <span id="ram"></span>
             <div class="progress_back">
-                <div id="progress" class="progress"></div>
+                <div id="progress" class="progress">
+                    <div id="progress_text" class="progress_text"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -29,7 +31,7 @@
                     var data_jsn = JSON.parse(data);
                     $('#ram').html("RAM " + data_jsn.RAM_USED + " /" + data_jsn.RAM_TOTAL + " GB");
                     $('#progress').css("width", data_jsn.RAM_PERCENT + "%");
-                    $('#progress').html(data_jsn.RAM_PERCENT + "%");
+                    $('#progress_text').html(data_jsn.RAM_PERCENT + "%");
                 });
             }
 
