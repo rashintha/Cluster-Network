@@ -12,7 +12,7 @@
     </div>
 
     <div class="container top-contain">
-        <div class="top-data">
+        <div id='ram' class="top-data">
             RAM
         </div>
     </div>
@@ -23,7 +23,7 @@
         $(document).ready(function(){
             function loadData(){
                 $.get('/status', function(data, status){
-                    $('#result').html(data);
+                    $('#ram').html("RAM " + data);
                 });
             }
 

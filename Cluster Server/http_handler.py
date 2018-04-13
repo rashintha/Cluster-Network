@@ -38,7 +38,7 @@ class HTTPHandler(BaseHTTPRequestHandler):
             self.send_header('Content-type', 'text/event-stream')
             self.end_headers()
 
-            content = get_data() + str(time.asctime()) + ' Time'
+            content = get_data()
         else:
             self.send_response(status_code)
             self.send_header('Content-type', self.resolveMimeType(path))
