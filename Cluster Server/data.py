@@ -7,7 +7,7 @@ def get_used_mem():
 def get_total_mem():
     return psutil.virtual_memory().total
 
-def get_user_mem_percentage():
+def get_used_mem_percentage():
     return psutil.virtual_memory().percent
 
 def get_data():
