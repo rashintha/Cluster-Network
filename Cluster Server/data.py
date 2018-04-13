@@ -27,7 +27,7 @@ def get_data():
 
     cpu_current = get_current_cpu_freq() / 1000
     cpu_max = get_max_cpu_freq() / 1000
-    cpu_percent = get_cpu_percentage(cpu_current - 0.8, cpu_max - 0.8)
+    cpu_percent = get_cpu_percentage(cpu_current, cpu_max)
 
     json_obj = json.dumps({"RAM_USED": str("{0:.2f}".format(ram_used)),
         "RAM_TOTAL": str("{0:.2f}".format(ram_total)),
