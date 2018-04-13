@@ -113,5 +113,8 @@ body{
 	.progress{
 		height: 20px;
 		background-color: #502785;
+		color: #fff;
+		text-align: center;
+		font-size: 11px;
 	}
 }
